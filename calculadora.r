@@ -9,6 +9,10 @@ calcular <- function(num1, num2, operacao) {
 		resultado <- num1 - num2
 	}
 
+	if(operacao == '*') {
+		resultado <- num - num2
+	}
+
 	if(operacao == '/') {
 		resultado <- num1 / num2
 	}
@@ -19,17 +23,18 @@ calcular <- function(num1, num2, operacao) {
 		resultado <- num1 ^ expoente
 	}
 
-	# eu não vou conseguir retornar as raizes dos dois números
+	# o professor, na hora da apresentação, tinha perguntado se a gente
+	# conseguia tratar números negativos na raiz quadrada...
+	# TODO: tratar números negativos
 	if(operacao == "sqrt") {
-		resultado <- sqrt(num1)
+		resultado <- c(sqrt(num1), sqrt(num2))
 	}
 
 	return(resultado)
 }
 
-
 numero1		<- as.numeric(readline("Digite um número: "))
 numero2		<- as.numeric(readline("Digite um outro número: "))
 operacao	<- readline("Me diga a operação (+, -, /, ^, sqrt): ")
 
-print(calcular(numero1, numero2, operacao))
+calcular(numero1, numero2, operacao)
